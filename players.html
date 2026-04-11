@@ -195,9 +195,30 @@
     font-size: 0.75rem; letter-spacing: 1px;
   }
 
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: space-between;
+    width: 24px; height: 18px; cursor: pointer;
+    background: none; border: none; padding: 0; z-index: 200;
+  }
+  .nav-hamburger span { display: block; height: 2px; width: 100%; background: var(--text-primary); transition: transform 0.3s, opacity 0.3s; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 150;
+    background: rgba(10,10,10,0.97); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--font-display); font-size: 2.2rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--text-primary); }
+
   @media (max-width: 640px) {
-    .nav-links { gap: 18px; }
-    .nav-links a { font-size: 0.72rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .page-hero { padding: 120px 24px 40px; }
   }
 </style>
@@ -230,8 +251,18 @@
       <li><a href="highlights.html">Highlights</a></li>
       <li><a href="get-featured.html">Get Featured</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="players.html">Players</a>
+  <a href="highlights.html">Highlights</a>
+  <a href="get-featured.html">Get Featured</a>
+</div>
 
 <div class="page-hero">
   <div>
@@ -309,6 +340,25 @@
           card.classList.add('hidden');
         }
       });
+    });
+  });
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
   });
 </script>
