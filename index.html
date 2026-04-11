@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>They Got Next — The future of hoops begins here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #161616;
+    --border: #222222;
+    --text-primary: #ffffff;
+    --text-secondary: #999999;
+    --text-muted: #555555;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 0;
+    background: rgba(10,10,10,0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 38px; width: auto; }
+  .nav-logo span {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--text-secondary); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 140px 24px 100px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 700px; height: 700px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero p {
+    font-size: 1.1rem; font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 520px; margin: 0 auto 44px;
+    line-height: 1.75;
+  }
+
+  /* BUTTONS */
+  .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 34px;
+    font-family: var(--font-body);
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 2.2px; text-transform: uppercase;
+    border: 1px solid #fff;
+    background: transparent; color: #fff;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+  .btn:hover { background: #fff; color: #0a0a0a; }
+  .btn--filled { background: #fff; color: #0a0a0a; }
+  .btn--filled:hover { background: transparent; color: #fff; }
+
+  /* SECTIONS */
+  section { padding: 100px 0; border-top: 1px solid var(--border); }
+  section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  section > .container > p.section-sub {
+    color: var(--text-secondary); font-weight: 300;
+    font-size: 1.05rem; max-width: 580px;
+    margin-bottom: 52px; line-height: 1.7;
+  }
+
+  /* PLAYER GRID */
+  .player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .player-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .player-card:hover { border-color: #444; }
+  .player-img {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .player-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block;
+  }
+  .player-info { padding: 20px; }
+  .player-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem; letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .player-meta {
+    font-size: 0.78rem; color: var(--text-muted);
+    margin-bottom: 16px; letter-spacing: 0.5px;
+  }
+  .player-link {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .player-link:hover { color: #fff; border-color: #fff; }
+
+  /* SWIPER */
+  #recent-players {
+    padding-bottom: 60px;
+  }
+  .swiper-outer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .swiper-nav {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    align-self: center;
+    margin-bottom: 36px;
+  }
+  .swiper-nav:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: #fff;
+  }
+  .swiper-nav:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  .swiper {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    padding-bottom: 36px;
+  }
+  .swiper-slide {
+    height: auto;
+    display: flex;
+  }
+  .swiper-slide .player-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .swiper-slide .player-img {
+    width: 100% !important;
+    aspect-ratio: 3/4 !important;
+  }
+  .swiper-slide .player-info {
+    min-height: 200px;
+  }
+  .swiper-slide .player-meta {
+    min-height: 56px;
+  }
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+  .swiper-pagination-bullet {
+    background: var(--text-muted);
+    opacity: 0.5;
+  }
+  .swiper-pagination-bullet-active {
+    background: var(--text-primary) !important;
+    opacity: 1 !important;
+  }
+  @media (max-width: 768px) {
+    .swiper-nav { display: none; }
+  }
+
+  /* ABOUT */
+  .about-text { max-width: 680px; }
+  .about-text p {
+    color: var(--text-secondary);
+    font-weight: 300; font-size: 1.05rem;
+    line-height: 1.8; margin-bottom: 24px;
+  }
+
+  /* CTA */
+  .cta { text-align: center; }
+  .cta .container > p.section-sub { margin-left: auto; margin-right: auto; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem; letter-spacing: 1px;
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text-primary);
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 150;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--text-primary); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .btn { padding: 11px 22px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/tgn-logo.jpeg" alt="TGN Logo">
+      <span>They Got Next</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="players.html">Players</a></li>
+      <li><a href="get-featured.html">Get Featured</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="players.html">Players</a>
+  <a href="get-featured.html">Get Featured</a>
+</div>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>The future of hoops begins here.</h1>
+    <p>TGN is an independent basketball platform built to spotlight the next wave of pro hoopers.</p>
+    <div class="btn-group">
+      <a href="#" class="btn btn--filled">Watch Highlights</a>
+      <a href="get-featured.html" class="btn">Get Featured</a>
+    </div>
+  </div>
+</div>
+
+<section id="players">
+  <div class="container">
+    <h2>Players on the radar</h2>
+    <p class="section-sub">Check the stats. Watch the highlights. Follow the journey.</p>
+    <div class="player-grid">
+      <div class="player-card">
+        <div class="player-img"><img src="assets/images/players/tony1.png" alt="Tony Hauser" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="player-info">
+          <h3>Tony Hauser</h3>
+          <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; Limerick Celtics &middot; Irish Super League</div>
+          <a href="players/tony-hauser.html" class="player-link">View Profile</a>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-img"><img src="assets/images/players/vacario1.png" alt="Vacario Triplett" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="player-info">
+          <h3>Vacario Triplett</h3>
+          <div class="player-meta">Guard &middot; 6&rsquo;3&rdquo; &middot; Elbasani &middot; Albanian Superliga</div>
+          <a href="players/vacario-triplett.html" class="player-link">View Profile</a>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-img"><img src="assets/images/players/calebjones1.png" alt="Caleb Jones" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="player-info">
+          <h3>Caleb Jones</h3>
+          <div class="player-meta">Guard &middot; 6&rsquo;2&rdquo; &middot; Columbia College</div>
+          <a href="players/caleb-jones.html" class="player-link">View Profile</a>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-img"><img src="assets/images/players/umut1.png" alt="Umut Kozanoglu" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div class="player-info">
+          <h3>Umut Kozanoglu</h3>
+          <div class="player-meta">Point Guard &middot; 185 cm &middot; BBC Rendsburg Twisters &middot; Regionalliga</div>
+          <a href="players/umut-kozanoglu.html" class="player-link">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recent-players">
+  <div class="container">
+    <h2>Recently Added</h2>
+    <p class="section-sub">Swipe through the latest featured players.</p>
+    <div class="swiper-outer">
+    <button class="swiper-nav" id="swiper-prev">&#8249;</button>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="player-card" data-position="guard">
+            <div class="player-img"><img src="assets/images/players/umut1.png" alt="Umut Kozanoglu" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+            <div class="player-info">
+              <h3>Umut Kozanoglu</h3>
+              <div class="player-meta">Point Guard &middot; 185 cm &middot; BBC Rendsburg Twisters &middot; Regionalliga</div>
+              <a href="players/umut-kozanoglu.html" class="player-link">View Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="player-card" data-position="guard">
+            <div class="player-img"><img src="assets/images/players/calebjones1.png" alt="Caleb Jones" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="player-info">
+              <h3>Caleb Jones</h3>
+              <div class="player-meta">Guard &middot; 6&rsquo;2&rdquo; &middot; Columbia College</div>
+              <a href="players/caleb-jones.html" class="player-link">View Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="player-card" data-position="guard">
+            <div class="player-img"><img src="assets/images/players/vacario1.png" alt="Vacario Triplett" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="player-info">
+              <h3>Vacario Triplett</h3>
+              <div class="player-meta">Guard &middot; 6&rsquo;3&rdquo; &middot; Elbasani &middot; Albanian Superliga</div>
+              <a href="players/vacario-triplett.html" class="player-link">View Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="player-card" data-position="forward">
+            <div class="player-img"><img src="assets/images/players/tony1.png" alt="Tony Hauser" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="player-info">
+              <h3>Tony Hauser</h3>
+              <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; Limerick Celtics &middot; Irish Super League</div>
+              <a href="players/tony-hauser.html" class="player-link">View Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <button class="swiper-nav" id="swiper-next">&#8250;</button>
+    </div>
+  </div>
+
+</section>
+  <div class="container">
+    <h2>Built for everyone.</h2>
+    <div class="about-text">
+      <p>Professional basketball is full of players grinding through leagues that rarely get coverage. TGN was built to change that. We document careers, create highlight content, and give players and agents a platform to be seen — across every tier of the game.</p>
+      <p>Whether you are a player looking to get featured, an agent searching for the right exposure, or a fan following the next wave of talent — you are in the right place.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Follow the movement.</h2>
+    <p class="section-sub">Highlights, scouting clips, and player stories — every week on YouTube and Instagram.</p>
+    <div class="btn-group">
+      <a href="https://www.youtube.com/@theygotnext" class="btn btn--filled">Watch on YouTube</a>
+      <a href="https://www.instagram.com/they_got_next/" class="btn">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; 2026 They Got Next. All rights reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      480: { slidesPerView: 2, spaceBetween: 16 },
+      1024: { slidesPerView: 4, spaceBetween: 20 },
+    },
+  });
+
+  document.getElementById('swiper-prev').addEventListener('click', () => swiper.slidePrev());
+  document.getElementById('swiper-next').addEventListener('click', () => swiper.slideNext());
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+</body>
+</html>

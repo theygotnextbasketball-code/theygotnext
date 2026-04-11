@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Featured — They Got Next</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #111111; --bg-card: #161616;
+    --border: #222222; --text-primary: #ffffff; --text-secondary: #999999;
+    --text-muted: #555555;
+    --font-display: 'Bebas Neue', sans-serif; --font-body: 'Barlow', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10,10,10,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 38px; width: auto; }
+  .nav-logo span { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-secondary); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text-primary); }
+
+  .btn { display: inline-block; padding: 13px 34px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 2.2px; text-transform: uppercase; border: 1px solid #fff; background: transparent; color: #fff; cursor: pointer; transition: background 0.25s, color 0.25s; }
+  .btn:hover { background: #fff; color: #0a0a0a; }
+  .btn--filled { background: #fff; color: #0a0a0a; }
+  .btn--filled:hover { background: transparent; color: #fff; }
+
+  .page-header {
+    padding: 160px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .page-header p {
+    color: var(--text-secondary); font-weight: 300;
+    font-size: 1.05rem; max-width: 640px; line-height: 1.8;
+  }
+
+  section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  section p {
+    color: var(--text-secondary); font-weight: 300;
+    font-size: 1rem; max-width: 600px; line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 1px; }
+
+  @media (max-width: 640px) {
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 0.72rem; }
+    .btn { padding: 11px 22px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/tgn-logo.jpeg" alt="TGN Logo">
+      <span>They Got Next</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="players.html">Players</a></li>
+      <li><a href="get-featured.html">Get Featured</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Get on the platform.</h1>
+    <p>TGN covers players competing across European professional leagues. If you are a player, agent, or representative looking to get featured through highlight content or a scouting report, this is where to start. All requests are reviewed personally.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2>Request a feature</h2>
+    <p>Use the form to submit your highlight request, ask about scouting reports, or reach out about any TGN collaboration.</p>
+    <a href="https://forms.gle/poVM6DzAafgMBgoh6" class="btn btn--filled">Submit a Request</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Have a question?</h2>
+    <p>For general inquiries, partnerships, or media requests — reach out through the form above or find us on Instagram.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; 2026 They Got Next. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
