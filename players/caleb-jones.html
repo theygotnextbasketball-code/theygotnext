@@ -63,6 +63,9 @@
     font-size: 0.9rem; color: var(--text-muted);
     letter-spacing: 0.8px; margin-bottom: 8px;
   }
+  .status-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: 1px solid; }
+  .status-tag.available { color: #4ade80; border-color: #4ade80; }
+  .status-tag.signed { color: var(--text-muted); border-color: var(--text-muted); }
 
   section { padding: 60px 0; border-bottom: 1px solid var(--border); }
   section h2 {
@@ -192,6 +195,7 @@
     <div class="profile-header">
       <h1>Caleb Jones</h1>
       <div class="profile-meta">Guard &middot; 6&rsquo;2&rdquo; &middot; Columbia College</div>
+      <div class="status-tag available">Available</div>
     </div>
   </div>
 </div>
