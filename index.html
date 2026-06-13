@@ -146,6 +146,7 @@
     border: 1px solid var(--border);
     overflow: hidden;
     transition: border-color 0.3s;
+    display: flex; flex-direction: column;
   }
   .player-card:hover { border-color: #444; }
   .player-img {
@@ -163,7 +164,7 @@
     object-position: center top !important;
     display: block;
   }
-  .player-info { padding: 20px; }
+  .player-info { padding: 20px; display: flex; flex-direction: column; flex: 1; }
   .player-info h3 {
     font-family: var(--font-display);
     font-size: 1.35rem; letter-spacing: 1px;
@@ -171,7 +172,7 @@
   }
   .player-meta {
     font-size: 0.78rem; color: var(--text-muted);
-    margin-bottom: 16px; letter-spacing: 0.5px;
+    margin-bottom: 16px; letter-spacing: 0.5px; flex: 1;
   }
   .player-link {
     font-size: 0.75rem; font-weight: 600;
@@ -365,7 +366,6 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="players.html">Players</a></li>
-      <li><a href="highlights.html">Highlights</a></li>
       <li><a href="coaches.html">Coaches</a></li>
       <li><a href="get-featured.html">Get Featured</a></li>
     </ul>
@@ -380,7 +380,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="players.html">Players</a>
-  <a href="highlights.html">Highlights</a>
   <a href="coaches.html">Coaches</a>
   <a href="get-featured.html">Get Featured</a>
 </div>
@@ -390,7 +389,7 @@
     <h1>The future of hoops begins here.</h1>
     <p>TGN is an independent basketball platform built to spotlight the next wave of pro hoopers.</p>
     <div class="btn-group">
-      <a href="highlights.html" class="btn btn--filled">Watch Highlights</a>
+      <a href="players.html" class="btn btn--filled">View Players</a>
       <a href="get-featured.html" class="btn">Get Featured</a>
     </div>
   </div>
@@ -418,19 +417,19 @@
         </div>
       </div>
       <div class="player-card">
-        <div class="player-img"><img src="assets/images/players/blessing1.png" alt="Blessing Adesipe" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="player-img"><img src="assets/images/players/lukewilliams1.webp" alt="Luke Williams" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="player-info">
-          <h3>Blessing Adesipe</h3>
-          <div class="player-meta">Guard &middot; 6&rsquo;6&rdquo; &middot; Chadron State &middot; RMAC</div>
-          <a href="players/blessing-adesipe.html" class="player-link">View Profile</a>
+          <h3>Luke Williams</h3>
+          <div class="player-meta">Guard &middot; 6&rsquo;0&rdquo; &middot; Charleston Southern University &middot; NCAA D1</div>
+          <a href="players/luke-williams.html" class="player-link">View Profile</a>
         </div>
       </div>
       <div class="player-card">
-        <div class="player-img"><img src="assets/images/players/byers1.png" alt="Ja'Vion Byers" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="player-img"><img src="assets/images/players/daylenwilliams.webp" alt="Daylen Williams" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="player-info">
-          <h3>Ja&rsquo;Vion Byers</h3>
-          <div class="player-meta">Guard &middot; 6&rsquo;2&rdquo; &middot; Truman State University &middot; NCAA D2</div>
-          <a href="players/javion-byers.html" class="player-link">View Profile</a>
+          <h3>Daylen Williams</h3>
+          <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; BC Beroe &middot; Bulgaria</div>
+          <a href="players/daylen-williams.html" class="player-link">View Profile</a>
         </div>
       </div>
     </div>
@@ -486,22 +485,22 @@
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="player-card" data-position="forward guard">
-            <div class="player-img"><img src="assets/images/players/blessing1.png" alt="Blessing Adesipe" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="player-card" data-position="guard">
+            <div class="player-img"><img src="assets/images/players/lukewilliams1.webp" alt="Luke Williams" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="player-info">
-              <h3>Blessing Adesipe</h3>
-              <div class="player-meta">Guard &middot; 6&rsquo;6&rdquo; &middot; Chadron State &middot; RMAC</div>
-              <a href="players/blessing-adesipe.html" class="player-link">View Profile</a>
+              <h3>Luke Williams</h3>
+              <div class="player-meta">Guard &middot; 6&rsquo;0&rdquo; &middot; Charleston Southern University &middot; NCAA D1</div>
+              <a href="players/luke-williams.html" class="player-link">View Profile</a>
             </div>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="player-card" data-position="guard">
-            <div class="player-img"><img src="assets/images/players/byers1.png" alt="Ja'Vion Byers" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="player-card" data-position="forward">
+            <div class="player-img"><img src="assets/images/players/daylenwilliams.webp" alt="Daylen Williams" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="player-info">
-              <h3>Ja&apos;Vion Byers</h3>
-              <div class="player-meta">Guard &middot; Truman State University &middot; NCAA D2</div>
-              <a href="players/javion-byers.html" class="player-link">View Profile</a>
+              <h3>Daylen Williams</h3>
+              <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; BC Beroe &middot; Bulgaria</div>
+              <a href="players/daylen-williams.html" class="player-link">View Profile</a>
             </div>
           </div>
         </div>
@@ -562,6 +561,16 @@
               <h3>Tony Hauser</h3>
               <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; Limerick Celtics &middot; Irish Super League</div>
               <a href="players/tony-hauser.html" class="player-link">View Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="player-card" data-position="forward">
+            <div class="player-img"><img src="assets/images/players/daylenwilliams.webp" alt="Daylen Williams" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+            <div class="player-info">
+              <h3>Daylen Williams</h3>
+              <div class="player-meta">Forward &middot; 6&rsquo;8&rdquo; &middot; BC Beroe &middot; Bulgarian NBL</div>
+              <a href="players/daylen-williams.html" class="player-link">View Profile</a>
             </div>
           </div>
         </div>
