@@ -117,6 +117,7 @@
     border: 1px solid var(--border);
     overflow: hidden;
     transition: border-color 0.3s;
+    display: flex; flex-direction: column;
   }
   .player-card:hover { border-color: #444; }
   .player-img {
@@ -134,7 +135,7 @@
     object-position: center top !important;
     display: block;
   }
-  .player-info { padding: 20px; }
+  .player-info { padding: 20px; display: flex; flex-direction: column; flex: 1; }
   .player-info h3 {
     font-family: var(--font-display);
     font-size: 1.35rem; letter-spacing: 1px;
@@ -142,7 +143,7 @@
   }
   .player-meta {
     font-size: 0.78rem; color: var(--text-muted);
-    margin-bottom: 16px; letter-spacing: 0.5px;
+    margin-bottom: 16px; letter-spacing: 0.5px; flex: 1;
   }
   .player-link {
     font-size: 0.75rem; font-weight: 600;
