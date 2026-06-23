@@ -122,9 +122,15 @@
   </url>
   <url>
     <loc>https://theygotnext.com/blog</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theygotnext.com/blog/isaiah-bigelow-signs-aquila-trento</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://theygotnext.com/blog/fiba-u18-americup-2026-two-names-to-watch</loc>
