@@ -42,15 +42,3 @@ from = "/get-featured.html"
 to = "/get-featured"
 status = 301
 force = true
-
-[[redirects]]
-from = "/players/:splat.html"
-to = "/players/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "/blog/:splat.html"
-to = "/blog/:splat"
-status = 301
-force = true
