@@ -1,2 +1,56 @@
 [build.processing.html]
   pretty_urls = true
+
+[[redirects]]
+from = "http://theygotnext.com/*"
+to = "https://theygotnext.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://www.theygotnext.com/*"
+to = "https://theygotnext.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/index.html"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/players.html"
+to = "/players"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog.html"
+to = "/blog"
+status = 301
+force = true
+
+[[redirects]]
+from = "/coaches.html"
+to = "/coaches"
+status = 301
+force = true
+
+[[redirects]]
+from = "/get-featured.html"
+to = "/get-featured"
+status = 301
+force = true
+
+[[redirects]]
+from = "/players/:splat.html"
+to = "/players/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/:splat.html"
+to = "/blog/:splat"
+status = 301
+force = true
